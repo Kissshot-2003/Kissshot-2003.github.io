@@ -158,6 +158,8 @@ img { display: block; max-width: 100%; }
 .project-index { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .project-content h3 { font-family: var(--mono); font-size: 15px; font-weight: 500; margin: 0 0 7px; letter-spacing: -.02em; }
 .project-content p { font-size: 12.5px; color: var(--text-2); margin: 0; line-height: 1.7; max-width: 62em; }
+.project-note { margin-top: 10px; padding-top: 9px; border-top: 1px dashed var(--line-2); font-size: 11.5px; color: var(--text-3); line-height: 1.6; }
+.project-note b { font-family: var(--mono); font-weight: 400; color: var(--accent); margin-right: 8px; font-size: 10px; letter-spacing: .04em; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
 .project-tags span { font-family: var(--mono); font-size: 9.5px; color: var(--text-3); border: 1px solid var(--line); padding: 2px 6px; }
 .project-meta { text-align: right; }
