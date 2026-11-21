@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#1a1a1a"/>
+  <!-- 窗口 -->
+  <rect x="70" y="110" width="660" height="580" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <rect x="70" y="110" width="660" height="40" fill="#242424"/>
+  <circle cx="94" cy="130" r="5" fill="#ff5f56"/><circle cx="112" cy="130" r="5" fill="#ffbd2e"/><circle cx="130" cy="130" r="5" fill="#27c93f"/>
+  <rect x="300" y="125" width="120" height="9" fill="#8b8b8b"/>
+  <!-- 侧栏 -->
+  <rect x="70" y="150" width="150" height="540" fill="#1b1b1b"/>
+  <path d="M220 150V690" stroke="#333"/>
+  <g fill="#5a5a5a"><rect x="88" y="180" width="80" height="7"/><rect x="88" y="210" width="100" height="7"/><rect x="88" y="240" width="70" height="7"/><rect x="88" y="270" width="90" height="7"/></g>
+  <rect x="88" y="210" width="4" height="13" fill="#007aff"/>
+  <!-- 对话区 -->
+  <rect x="244" y="174" width="462" height="52" fill="#232323" stroke="#3a3a3a"/>
+  <rect x="262" y="192" width="200" height="8" fill="#9a9a9a"/>
+  <rect x="262" y="208" width="130" height="6" fill="#5a5a5a"/>
+  <rect x="330" y="244" width="376" height="52" fill="#1f2a38" stroke="#007aff" stroke-opacity=".5"/>
+  <rect x="348" y="262" width="240" height="8" fill="#8bb9e8"/>
+  <rect x="348" y="278" width="160" height="6" fill="#4a6a8a"/>
+  <rect x="244" y="314" width="300" height="52" fill="#232323" stroke="#3a3a3a"/>
+  <rect x="262" y="332" width="180" height="8" fill="#9a9a9a"/>
+  <!-- 输入条 -->
+  <rect x="244" y="600" width="462" height="56" fill="#1b1b1b" stroke="#3a3a3a"/>
+  <rect x="262" y="622" width="220" height="8" fill="#5a5a5a"/>
+  <rect x="662" y="614" width="28" height="28" fill="#007aff"/>
+  <g fill="#4a4a4a"><rect x="262" y="540" width="120" height="6"/><rect x="262" y="562" width="90" height="6"/></g>
+</svg>
