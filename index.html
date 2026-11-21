@@ -59,6 +59,13 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-copy">
+        <div class="identity reveal">
+          <img class="avatar" src="https://github.com/Kissshot-2003.png?size=160" alt="洛橙的 GitHub 头像" width="56" height="56">
+          <div>
+            <div class="identity-name">洛橙 <span class="en">/ LUOCHENG</span></div>
+            <div class="identity-handle"><a href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">@Kissshot-2003</a></div>
+          </div>
+        </div>
         <div class="badge mono reveal"><span class="badge-pulse"></span>AI 应用工程师 · 独立开发者</div>
         <h1 class="hero-title reveal">用 AI 让经验<br><span class="accent">可计算 · 可复用</span></h1>
         <p class="hero-lede reveal">十一年工程造价与工程数据经验，如今专注把 AI 真正接进业务现场——大模型微调、Agent 工作流、RAG 知识库，以及能跑在生产里的工具链。</p>
@@ -162,6 +169,17 @@
       </article>
       <article class="project-card reveal">
         <span class="project-index mono">04</span>
+        <div class="project-media"><img src="assets/project-agent.svg" alt="设备驱动与协议帧示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-content">
+          <div class="project-tags mono"><span>OPEN SOURCE</span><span>HID · TS</span><span>已合并</span></div>
+          <h3>ROCCAT Kone Pro Air 驱动 · OpenMouse</h3>
+          <p>给 OpenMouse 补一只鼠标的完整驱动：逆向 0xFF00 输出通道的协议帧，实现 DPI 五档读写、灯光与提交帧，所有写入走"读—改—写—回读确认"周期（PR #227，已合并）。</p>
+          <p class="project-note"><b>// 评价</b>2503 个测试 0 失败，并把"首次写入不得覆盖真实 DPI 表"写成测试约束。这是少数真正合并进上游、且经住多轮 AI 审查的硬件贡献。</p>
+        </div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/OpenMouse-Project/mouse-protocol/pull/227" target="_blank" rel="noopener">PR #227 ↗</a></div>
+      </article>
+      <article class="project-card reveal">
+        <span class="project-index mono">05</span>
         <div class="project-media"><img src="assets/project-ai-workspace.svg" alt="桌面应用界面示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
           <div class="project-tags mono"><span>RUST</span><span>EGUI</span><span>GUI + CLI</span></div>
@@ -172,7 +190,7 @@
         <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003/THzip-SpellArchive" target="_blank" rel="noopener">REPO ↗</a></div>
       </article>
       <article class="project-card reveal">
-        <span class="project-index mono">05</span>
+        <span class="project-index mono">06</span>
         <div class="project-media"><img src="assets/project-rag.svg" alt="文件容器解析示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
           <div class="project-tags mono"><span>PYTHON</span><span>造价 × 安全</span><span>CLI</span></div>
@@ -238,8 +256,9 @@
     <div class="contact-card reveal">
       <div class="section-kicker mono">05 / CONTACT</div>
       <h2>聊聊 AI、工具或开源</h2>
-      <p>有 AI 应用、工程数据工具或开源协作的想法，来 GitHub 找我。通常 1–2 个工作日内回复。</p>
+      <p>有 AI 应用、工程数据工具或开源协作的想法，来 GitHub 或邮箱找我。通常 1–2 个工作日内回复。</p>
       <a class="contact-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">github.com/Kissshot-2003 ↗</a>
+      <span class="contact-email">邮箱 <a href="mailto:Karl20070509@live.cn">Karl20070509@live.cn</a></span>
       <div class="contact-actions">
         <a class="btn btn-primary" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">打开 GitHub ↗</a>
         <a class="btn btn-ghost" href="#top">回到顶部 ↑</a>
