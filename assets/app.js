@@ -115,6 +115,58 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
+  /* ── P3 终端：逐行打字动画 ───────────────────────── */
+  var p3Text = document.getElementById('p3Text');
+  if (p3Text) {
+    // 模拟 P3 自检 /  phosphor 测试画面的输出（HTML 片段，class 控制明暗/反显）
+    var lines = [
+      '<span class="hi">P3 phosphor test pattern</span>',
+      '',
+      '<span class="dim">[  OK  ] warm boot ................. 1.42 s</span>',
+      '<span class="dim">[  OK  ] tube bias .................. 62 V</span>',
+      '<span class="dim">[ WARN ] no such device: /dev/radio0</span>',
+      '',
+      'console.cpp      1942',
+      'graphics.lib    12003',
+      'radio.bin       35911',
+      '',
+      'colours 31-36: 31 32 33 34 35 36',
+      'dim this line is dim, <span class="hi">hold this line is bold</span>',
+      'inverse <span class="inv">selected block</span> underline underlined',
+      '',
+      '中文输出: 寿县项目 工程量清单 组价 2026-11-02',
+      '',
+      '<span class="dim">net   1042 up   84 down   12.4 ms</span>',
+      '<span class="dim">mem   3164 / 16384 MB   cpu  07 %</span>',
+      '<span class="dim">disk  C: 412 GB free of 1024 GB</span>',
+      '',
+      'Hashing firmware [████████░░░░░░░░] 52%',
+      ''
+    ];
+
+    if (reduce) {
+      p3Text.innerHTML = lines.join('\n') + '<span class="p3-caret"></span>';
+    } else {
+      var li = 0;
+      function typeLine() {
+        if (li >= lines.length) {
+          p3Text.innerHTML += '<span class="p3-caret"></span>';
+          return;
+        }
+        var line = lines[li];
+        // 去标签取纯文本长度，用于逐字符推进
+        var plain = line.replace(/<[^>]*>/g, '');
+        // 逐行整行出现，行间有节奏；用 requestAnimationFrame 保证可见性
+        p3Text.innerHTML += (li ? '\n' : '') + line;
+        li++;
+        var delay = plain.length > 30 ? 150 : (li < 6 ? 110 : 90);
+        window.setTimeout(typeLine, delay);
+      }
+      // 等开机动画（约 .9s）结束后开始打字
+      window.setTimeout(typeLine, 1000);
+    }
+  }
+
   /* ── 外链安全 ─────────────────────────────────────── */
   Array.prototype.forEach.call(document.querySelectorAll('a[target="_blank"]'), function (a) {
     if (!a.rel) a.rel = 'noopener';
