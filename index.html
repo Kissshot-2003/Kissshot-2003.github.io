@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>洛橙 — 造价工程师 / 工程数字化实践者</title>
+<meta name="description" content="造价工程师，11 年土建与水利项目全过程造价管理经验。二级注册造价工程师、二级注册建造师、水利水电中级工程师。业余做 Rust 计价引擎、电子标格式逆向、性能研究与开源贡献。">
+<meta name="author" content="洛橙">
+<meta name="theme-color" content="#f5f5f1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="洛橙 — 造价工程师 / 工程数字化实践者">
+<meta property="og:description" content="把工程造价做成可计算、可验证的系统。11 年造价经验 × Rust 工具 × 系统研究 × 开源贡献。">
+<meta property="og:locale" content="zh_CN">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var t = localStorage.getItem('lc-theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        d.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "洛橙",
+  "alternateName": "Kissshot-2003",
+  "jobTitle": "造价工程师",
+  "sameAs": ["https://github.com/Kissshot-2003"],
+  "knowsAbout": ["工程造价", "清单计价", "Rust", "系统性能分析", "开源软件"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="回到顶部">
+    <span class="brand-mark">洛橙</span><span class="brand-slash">/</span><span class="brand-sub">PORTFOLIO</span>
+  </a>
+  <nav class="topnav" aria-label="章节导航">
+    <a href="#profile" data-nav="profile"><span>01</span> 概览</a>
+    <a href="#experience" data-nav="experience"><span>02</span> 履历</a>
+    <a href="#projects" data-nav="projects"><span>03</span> 项目</a>
+    <a href="#stack" data-nav="stack"><span>04</span> 能力</a>
+    <a href="#education" data-nav="education"><span>05</span> 教育</a>
+    <a href="#contact" data-nav="contact"><span>06</span> 联系</a>
+  </nav>
+  <div class="top-actions">
+    <button class="palette-btn" id="paletteBtn" type="button" aria-haspopup="dialog">
+      <span class="kbd">Ctrl</span><span class="kbd">K</span><span class="palette-label">命令</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="切换深浅色">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="hero-coords mono" aria-hidden="true">
+      <span>CN</span><span>REMOTE / ON-SITE</span><span>UTC+8</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow"><span class="mark">//</span> 造价工程师 · 工程数字化实践者</p>
+        <h1 class="hero-title" data-text="洛橙">
+          洛橙<span class="dot">.</span>
+        </h1>
+        <a class="hero-handle mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">@Kissshot-2003 <span aria-hidden="true">↗</span></a>
+        <p class="hero-lede">
+          <span class="lede-desktop">十一年土建与水利项目造价管理，<span class="nw nw-strict">二级注册造价工程师</span>。工作之外拆系统：用 Rust <span class="nw">重写计价引擎</span>，用 ETW 抓<span class="nw">内核长尾</span>，也给<span class="nw">开源项目</span>提 PR。</span>
+          <span class="lede-mobile">十一年土建与水利造价管理，<span class="nw-strict">二级注册造价工程师</span>。业余做 Rust 计价引擎、ETW 分析与开源。</span>
+        </p>
+        <div class="hero-actions">
+          <a class="btn solid" href="#projects">查看项目档案 <span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub 主页 ↗</a>
+        </div>
+        <dl class="hero-meta mono">
+          <div><dt>BASE</dt><dd>中国</dd></div>
+          <div><dt>ROLE</dt><dd>造价工程师 / 项目经理</dd></div>
+          <div><dt>OPEN TO</dt><dd>造价管理 · 工程数据工具 · 开源协作</dd></div>
+        </dl>
+      </div>
+
+      <aside class="terminal" aria-label="个人摘要终端">
+        <div class="term-bar">
+          <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="term-title mono">luocheng@portfolio: ~</span>
+          <span class="term-status mono"><i class="status-dot"></i>ONLINE</span>
+        </div>
+        <div class="term-body mono" id="term" aria-live="off">
+          <p><span class="prompt">$</span> <span class="cmd" data-type="whoami"></span></p>
+          <p class="out" data-after="0">→ 洛橙 / 造价工程师</p>
+          <p><span class="prompt">$</span> <span class="cmd" data-type="cat focus.txt"></span></p>
+          <p class="out" data-after="1">→ 工程造价 × 系统研究 × 开源</p>
+          <p><span class="prompt">$</span> <span class="cmd" data-type="ls projects/"></span></p>
+          <p class="out" data-after="2">→ kaoji/&nbsp; epoint-de/&nbsp; mc-spmt/&nbsp; pobg/</p>
+          <p><span class="prompt">$</span> <span class="cmd" data-type="uptime"></span></p>
+          <p class="out" data-after="3">→ 11 years in construction cost</p>
+          <p class="term-end"><span class="prompt">$</span> <span class="caret" aria-hidden="true"></span></p>
+        </div>
+        <div class="term-foot mono">
+          <span>RUST 1.75</span><span>P0 · 计价引擎</span><span>T+8</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="scroll-hint mono" aria-hidden="true"><span>SCROLL</span><span class="scroll-line"></span></div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>工程造价</span><i>/</i><span>清单计价</span><i>/</i><span>RUST</span><i>/</i><span>电子标格式逆向</span><i>/</i><span>ETW · DPC</span><i>/</i><span>FABRIC MIXIN</span><i>/</i><span>开源共建</span><i>/</i><span>GAME DEV</span><i>/</i><span>工程造价</span><i>/</i><span>清单计价</span><i>/</i><span>RUST</span><i>/</i><span>电子标格式逆向</span><i>/</i><span>ETW · DPC</span><i>/</i><span>FABRIC MIXIN</span><i>/</i><span>开源共建</span><i>/</i><span>GAME DEV</span><i>/</i>
+    </div>
+  </div>
+
+  <!-- ── 01 PROFILE ───────────────────────────────────── -->
+  <section class="chapter" id="profile" data-chapter="01 概览">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§01</span>
+      <span class="chapter-key mono">[概览]</span>
+      <h2>把造价做成可计算的系统</h2>
+    </header>
+    <div class="profile-grid">
+      <div class="prose reveal">
+        <p>我的主业是造价：预算编制、目标成本、动态成本、变更签证、竣工结算，覆盖土建与水利项目的全过程。核心工作是把模糊的现场变成清楚的数字，再让这些数字经得起业主、审计和时间的核对。</p>
+        <p>副业是拆系统：新点电子标文件到底怎么加密、Minecraft 的实体循环能不能推测并行、一个<span class="nw">网络过滤驱动</span>为什么让万兆网卡只剩三成。两件事其实共用一套方法——<strong>先摸清口径与数据，再写成可重复验证的工具</strong>。</p>
+        <p class="prose-note mono">// 不迷信软件默认值，也不迷信自己的第一版结论。</p>
+      </div>
+      <ul class="stat-grid reveal">
+        <li><strong class="mono" data-count="11" data-suffix="+">0</strong><span>年造价与工程经验</span></li>
+        <li><strong class="mono" data-count="3">0</strong><span>项执业 / 职称资质</span></li>
+        <li><strong class="mono" data-count="12">0</strong><span>个自研项目与实验</span></li>
+        <li><strong class="mono" data-count="6">0</strong><span>项上游开源贡献</span></li>
+      </ul>
+    </div>
+    <div class="now-strip reveal">
+      <span class="now-label mono">NOW</span>
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>推进 <strong>kaoji 开计价</strong>：Rust 计价引擎 P0 落地，读入真实投标文件、重算、对账、出报表。</span>
+      <span class="now-date mono">2026-11</span>
+    </div>
+  </section>
+
+  <!-- ── 02 EXPERIENCE ────────────────────────────────── -->
+  <section class="chapter" id="experience" data-chapter="02 履历">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§02</span>
+      <span class="chapter-key mono">[履历]</span>
+      <h2>十一年，从现场到成本中枢</h2>
+    </header>
+
+    <ol class="timeline">
+      <li class="reveal">
+        <div class="t-time mono">2023 — 至今</div>
+        <div class="t-main">
+          <div class="t-role"><h3>水利 / 造价工程师</h3><span class="t-co">安徽某建设企业</span></div>
+          <ul class="t-points">
+            <li>负责土建、水利项目预算编制与竣工结算，对接业主及造价咨询单位对量核价，配合结算审核与审计。</li>
+            <li>编制分包招标清单与合同，审核进度款、签证与结算，规范劳务及分包计量支付流程。</li>
+            <li>牵头目标成本编制与月度动态成本对比，建立变更索赔台账，提前锁定成本风险。</li>
+          </ul>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="t-time mono">2021 — 2023</div>
+        <div class="t-main">
+          <div class="t-role"><h3>造价员</h3><span class="t-co">安徽某建筑企业</span></div>
+          <ul class="t-points">
+            <li>负责公司主要项目预算编制与成本核算，配合编制资金计划与成本控制目标。</li>
+            <li>独立完成投标商务标制作，参与施工图预算审核与清单复核。</li>
+            <li>跟踪材料市场行情，建立常用材料价格台账，支撑预算与询价核价。</li>
+          </ul>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="t-time mono">2020 — 2021</div>
+        <div class="t-main">
+          <div class="t-role"><h3>技术员</h3><span class="t-co">浙江某建设集团</span></div>
+          <ul class="t-points">
+            <li>负责现场施工组织与进度计划跟踪，协调工序衔接与资源调配。</li>
+            <li>参与市政项目成本管理，核算人工与材料成本，优化工序与资源配置。</li>
+          </ul>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="t-time mono">2019 — 2020</div>
+        <div class="t-main">
+          <div class="t-role"><h3>技术员</h3><span class="t-co">青岛某建筑劳务企业</span></div>
+          <ul class="t-points">
+            <li>组织现场施工，指导技术细节与工序编排，开展安全检查与生产教育。</li>
+            <li>负责产量及实际成本核算，做成本偏差分析并落实降本措施。</li>
+          </ul>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="t-time mono">2016 — 2018</div>
+        <div class="t-main">
+          <div class="t-role"><h3>项目经理</h3><span class="t-co">安徽某科教文化企业</span></div>
+          <ul class="t-points">
+            <li>全面负责项目计划、组织实施与交付，统筹资金计划、进度与资源。</li>
+            <li>协调业主、监理及各方关系，组织成本测算、过程核算与竣工结算。</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ── 03 PROJECTS ──────────────────────────────────── -->
+  <section class="chapter" id="projects" data-chapter="03 项目">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§03</span>
+      <span class="chapter-key mono">[项目]</span>
+      <h2>项目档案</h2>
+      <p class="chapter-note">按方向筛选。点开每一条看做法与可核对的结果。</p>
+    </header>
+
+    <div class="filters reveal" role="group" aria-label="项目筛选">
+      <button class="chip is-active" data-filter="all" type="button">全部 <span class="mono">12</span></button>
+      <button class="chip" data-filter="cost" type="button">造价工具 <span class="mono">2</span></button>
+      <button class="chip" data-filter="research" type="button">系统研究 <span class="mono">4</span></button>
+      <button class="chip" data-filter="oss" type="button">开源共建 <span class="mono">2</span></button>
+      <button class="chip" data-filter="game" type="button">游戏 <span class="mono">2</span></button>
+      <button class="chip" data-filter="tool" type="button">工具实验 <span class="mono">4</span></button>
+    </div>
+
+    <ol class="project-list" id="projectList">
+      <li class="project is-open" data-cat="cost">
+        <button class="project-head" type="button" aria-expanded="true">
+          <span class="p-idx mono">01</span>
+          <span class="p-title"><strong>开计价 <span class="en">kaoji</span></strong><em>Rust 投标计价引擎</em></span>
+          <span class="p-tags mono">RUST · TAURI · XML</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>面向安徽房建/市政的投标计价工具。读入新点与国标接口 XML，从人材机含量重算综合单价，生成八张标准投标报表，并把改价结果写回原格式。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>480 条组价全量重算 0 失败；1,649,124 字节 XML 往返字节级一致。</li>
+              <li><span class="mono">02</span>CLI 覆盖体检、往返校验、组价重算、费用汇总、价差分析、建标、报表、清单浏览与调价回写。</li>
+              <li><span class="mono">03</span>6 个核心 crate 拆分模型、定额、组价、格式、报表与构建，另有 CLI 与 Tauri 桌面端。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot"></i>进行中 · P0</span>
+              <a class="text-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GITHUB ↗</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="cost research">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">02</span>
+          <span class="p-title"><strong>新点 <span class="en">.de</span> 定额库破译</strong><em>逆向工程 / 密码分析</em></span>
+          <span class="p-tags mono">PYTHON · 密码分析</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>新点造价安徽版的定额库被封装为 <code>.de</code>。在排除 AES、SQLite 口令与 ECB 之后，确认它是 16 字节周期密钥的逐字节 XOR；用「合法 GBK 字节率 + lag-16 自洽性」把密钥定位出来。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>解出 22 个定额库、63,266 条定额、2,608 个章节，落成可查询的 SQLite 与 CSV。</li>
+              <li><span class="mono">02</span>单库名称与官方明文库比对命中 17,167 / 17,256（99.5%）。</li>
+              <li><span class="mono">03</span>沉淀了一份可复用的破译方法论：重复块不能判口令，熵也不能判短周期 XOR。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot ok"></i>已破译</span>
+              <span class="foot-note mono">METHOD NOTE · 内部归档</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="research">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">03</span>
+          <span class="p-title"><strong>MC-SpMT 探测</strong><em>Minecraft 实体 tick 推测并行边界</em></span>
+          <span class="p-tags mono">JAVA · FABRIC · MIXIN</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>不急着并行，先测清楚能不能并行。用 Fabric Mixin 包住实体 tick 循环，只记录每个实体的写集（自身状态、邻域方块、邻近实体），再用离线窗口模拟求不同窗口大小下的冲突率与净收益边界。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>串行执行 + 邻域差异快照，避免插桩本身扭曲耗时分布。</li>
+              <li><span class="mono">02</span>输出 shadow JSONL、ρ(W) 曲线与热点 CSV，可归因到实体类型与交互类型。</li>
+              <li><span class="mono">03</span>把 Meterstick 的定性判断推进为可测量的 Q1–Q3：冲突结构、窗口边界、机制归因。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>研究原型</span>
+              <span class="foot-note mono">ISPASS / ICPE 文献基线</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="research">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">04</span>
+          <span class="p-title"><strong>DPC 延迟与网络栈</strong><em>从鼠标卡顿到 tcpip.sys 长尾</em></span>
+          <span class="p-tags mono">ETW · WPR · WINDOWS</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>用 Windows Performance Recorder 抓 DPC/ISR，把「看视频卡顿 + 音频爆音」定位到网络栈的超长 DPC；另整理第三方 WFP 驱动如何给每个入站包加税、阻断 RSC，让万兆单流掉到 3 Gbps。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>5.4 秒采样 22,123 次 DPC；30 秒内 13 次 131–262 ms 长尾，全部来自 tcpip.sys。</li>
+              <li><span class="mono">02</span>换算成体验：一次长尾 = 鼠标冻结 0.13–0.26 秒，音频缓冲必然断流。</li>
+              <li><span class="mono">03</span>定位 5 层网络过滤链叠加，给出驱动更新、过滤组件清理与中断绑核的排查顺序。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot ok"></i>已定位</span>
+              <span class="foot-note mono">WPR / xperf / WPA</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="oss research">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">05</span>
+          <span class="p-title"><strong>ROCCAT Kone Pro Air 驱动</strong><em>OpenMouse 上游 PR #227</em></span>
+          <span class="p-tags mono">TYPESCRIPT · HID</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>给 OpenMouse 项目补一只鼠标的完整驱动：从 vendor HID 接口逆向协议帧，实现 DPI 五档读写、灯光与提交帧，并让所有写入走「读—改—写—回读确认」周期。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>PR #227；2,503 个测试 0 失败，构建与打包通过。</li>
+              <li><span class="mono">02</span>三轮 AI 审查意见逐条对照源码核实，修复队列竞态、非法值污染与回空容忍策略。</li>
+              <li><span class="mono">03</span>把「首次写入不得用默认值覆盖真实 DPI 表」写成测试约束。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>PR 审查中</span>
+              <a class="text-link mono" href="https://github.com/OpenMouse-Project/mouse-protocol/pull/227" target="_blank" rel="noopener">PR #227 ↗</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="oss">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">06</span>
+          <span class="p-title"><strong>上游开源共建</strong><em>llama.cpp · Ray · FreeBSD 平台补丁</em></span>
+          <span class="p-tags mono">C++ · PYTHON · FREEBSD</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>用真实硬件和真实故障给上游补数据，而不是只提「希望支持」。包括 Vulkan 后端的实测基线、Ray Client 连接失败后的模式未复位，以及 opencode / bun-pty / fff 的 FreeBSD 构建修复。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>llama.cpp #30039：补齐 RX 5700 XT（gfx1010）Vulkan 实测数据与复现步骤。</li>
+              <li><span class="mono">02</span>Ray #67385：修复失败连接后进程卡在 Client 模式、后续 init 只报 AssertionError。</li>
+              <li><span class="mono">03</span>3 个 FreeBSD 补丁均已对上游 main 做 <code>git apply --check</code>，并逐个排除重复 PR。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>上游审查中</span>
+              <a class="text-link mono" href="https://github.com/ggml-org/llama.cpp/issues/30039" target="_blank" rel="noopener">LLAMA.CPP ↗</a>
+              <a class="text-link mono" href="https://github.com/ray-project/ray/pull/67385" target="_blank" rel="noopener">RAY ↗</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="game">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">07</span>
+          <span class="p-title"><strong>鸡地求生 <span class="en">POBG</span></strong><em>零素材依赖的俯视角吃鸡</em></span>
+          <span class="p-tags mono">CANVAS · WEBAUDIO</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>所有角色、地图、特效、文字、音效均由代码实时生成，不含任何官方素材。整款游戏可打包成一个 HTML 文件，双击即玩。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>12 波敌人、3 个 Boss、4 张战场、6 种武器、12 种强化。</li>
+              <li><span class="mono">02</span>WebAudio 程序化音效与背景节拍；最高分本地存档。</li>
+              <li><span class="mono">03</span>启动脚本优先用 Edge / Chrome 应用窗口模式，像一个独立游戏。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot ok"></i>可玩</span>
+              <span class="foot-note mono">单文件版 · 离线运行</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="game">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">08</span>
+          <span class="p-title"><strong>东方卫戍</strong><em>东方主题「自走棋 + 塔防」Demo</em></span>
+          <span class="p-tags mono">TYPESCRIPT · VITE</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>用东方 Project 主题做的小体量「自走棋 + 塔防」，目标是低成本验证玩法能不能立住：九回合主循环、商店与三合一升星、八格防线与盟约加成。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>21 名角色、3 个阵营盟约（2/4/6 档）、9 回合经济循环。</li>
+              <li><span class="mono">02</span>塔防战斗引擎：推进、阻挡、索敌、治疗、符卡自动释放与漏怪扣结界。</li>
+              <li><span class="mono">03</span>25 个单元测试通过；战斗 50 ms 一帧、2.4 倍速回放。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>Demo v0.1</span>
+              <span class="foot-note mono">待接入：盟约数值 / 音效 / 存档</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="tool">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">09</span>
+          <span class="p-title"><strong>鼠标滚轮输入法</strong><em>单手短文本输入原型</em></span>
+          <span class="p-tags mono">RUST · EGUI · WIN32</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>按住鼠标侧键弹出半透明字母盘，滚轮移动高亮、左键确认并注入焦点窗口，松开侧键立即归还鼠标控制权。面向 HTPC 客厅、无障碍与单手操作。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>钩子回调只置原子标志与记录坐标，必须在一毫秒内返回。</li>
+              <li><span class="mono">02</span>fail-open：任何内部异常都让事件正常通过，绝不卡死系统鼠标。</li>
+              <li><span class="mono">03</span>短文本优先：搜索词、网址、密码等场景，不追求长文效率。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>v0.1 原型</span>
+              <span class="foot-note mono">开发文档 · 模块设计完成</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="tool">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">10</span>
+          <span class="p-title"><strong>TouhouZip</strong><em>东方同人压缩包桌面工具</em></span>
+          <span class="p-tags mono">C# · WPF · .NET</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>为东方同人资源整理做的 Windows 桌面压缩包工具，已发布单文件可执行版本。重点不在功能堆叠，而在处理大量小文件时的交互与响应。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>C# / WPF 桌面端，单文件发布，免安装运行。</li>
+              <li><span class="mono">02</span>面向同人资源的批量整理场景设计。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot ok"></i>可用</span>
+              <span class="foot-note mono">Windows x64</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="tool">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">11</span>
+          <span class="p-title"><strong>橙AI</strong><em>桌面 AI 客户端实验</em></span>
+          <span class="p-tags mono">DESKTOP · AI</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>自用的桌面 AI 客户端，用来验证造价场景下的提示词模板、知识库检索与批处理工作流。也是「把 AI 真正接进日常业务」的实验场。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>本机打包测试版，单文件可执行。</li>
+              <li><span class="mono">02</span>模板化提示词与多轮任务编排。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot warn"></i>测试版</span>
+              <span class="foot-note mono">内部使用</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="project" data-cat="tool">
+        <button class="project-head" type="button" aria-expanded="false">
+          <span class="p-idx mono">12</span>
+          <span class="p-title"><strong>群聊读书妖怪</strong><em>群聊陪聊 Agent 人设实验</em></span>
+          <span class="p-tags mono">AGENT · PERSONA</span>
+          <span class="p-year mono">2026</span>
+          <span class="p-plus" aria-hidden="true"></span>
+        </button>
+        <div class="project-body">
+          <div class="project-inner">
+            <p>一个安静读群、被 @ 才开口的陪聊型 Agent。重点不是话术，而是边界：记得住上下文但不翻旧账，不参与争吵，对刷屏和广告冷淡处理。</p>
+            <ul class="evidence">
+              <li><span class="mono">01</span>完整人设卡：基础档案、性格、说话方式、群内行为准则与禁忌。</li>
+              <li><span class="mono">02</span>以「读书 / 书页 / 批注」为统一比喻，控制回复长度与频率。</li>
+            </ul>
+            <div class="project-foot">
+              <span class="status-badge mono"><i class="status-dot ok"></i>运行中</span>
+              <span class="foot-note mono">私群部署</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p class="list-empty mono" id="listEmpty" hidden>// 该分类下暂无条目</p>
+  </section>
+
+  <!-- ── 04 STACK ─────────────────────────────────────── -->
+  <section class="chapter" id="stack" data-chapter="04 能力">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§04</span>
+      <span class="chapter-key mono">[能力]</span>
+      <h2>能力矩阵</h2>
+    </header>
+    <div class="stack-grid">
+      <article class="stack-col reveal">
+        <header><span class="mono">A</span><h3>工程与造价</h3></header>
+        <ul>
+          <li>清单计价与组价</li>
+          <li>预算编制 / 结算审核</li>
+          <li>目标成本 · 动态成本</li>
+          <li>变更 · 签证 · 索赔</li>
+          <li>分包招标与计量支付</li>
+          <li>对量核价与审计配合</li>
+        </ul>
+      </article>
+      <article class="stack-col reveal">
+        <header><span class="mono">B</span><h3>软件与系统</h3></header>
+        <ul>
+          <li>Rust · Python · TypeScript</li>
+          <li>C# · Java · SQL</li>
+          <li>Tauri · SQLite · Web</li>
+          <li>ETW / WPR 性能分析</li>
+          <li>Fabric Mixin 字节码插桩</li>
+          <li>HID 协议与文件格式逆向</li>
+        </ul>
+      </article>
+      <article class="stack-col reveal">
+        <header><span class="mono">C</span><h3>AI 与自动化</h3></header>
+        <ul>
+          <li>大模型微调（LoRA / PEFT）</li>
+          <li>Agent 工作流设计</li>
+          <li>RAG 知识库搭建</li>
+          <li>Skill 封装与 SOP 化</li>
+          <li>造价场景提示词工程</li>
+          <li>批处理与报表自动化</li>
+        </ul>
+      </article>
+    </div>
+    <ul class="cert-strip reveal">
+      <li><span class="mono">CERT-01</span>二级注册造价工程师</li>
+      <li><span class="mono">CERT-02</span>二级注册建造师</li>
+      <li><span class="mono">CERT-03</span>水利水电中级工程师</li>
+    </ul>
+  </section>
+
+  <!-- ── 05 EDUCATION ─────────────────────────────────── -->
+  <section class="chapter" id="education" data-chapter="05 教育">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§05</span>
+      <span class="chapter-key mono">[教育]</span>
+      <h2>教育背景</h2>
+    </header>
+    <div class="edu-grid">
+      <article class="edu reveal">
+        <div class="edu-time mono">2017 — 2019</div>
+        <h3>土木工程 · 本科</h3>
+        <p>继续教育 · 工程管理方向</p>
+      </article>
+      <article class="edu reveal">
+        <div class="edu-time mono">2012 — 2015</div>
+        <h3>建筑工程管理 · 大专</h3>
+        <p>建筑工程技术方向</p>
+      </article>
+    </div>
+    <p class="edu-note reveal">持续学习：分布式计算与异构计算环境搭建（Ray / openYuanrong / llama.cpp Vulkan）、系统性能分析、密码分析与文件格式互操作。</p>
+  </section>
+
+  <!-- ── 06 CONTACT ───────────────────────────────────── -->
+  <section class="chapter contact" id="contact" data-chapter="06 联系">
+    <header class="chapter-head reveal">
+      <span class="chapter-no mono">§06</span>
+      <span class="chapter-key mono">[联系]</span>
+      <h2>聊聊造价、工具或开源</h2>
+    </header>
+    <div class="contact-grid">
+      <div class="contact-main reveal">
+        <p class="contact-lede">有造价项目、工程数据工具或开源协作，来 GitHub 找我。通常 1–2 个工作日内回复。</p>
+        <a class="contact-mail" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">
+          github.com/Kissshot-2003 <span aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-actions">
+          <a class="btn solid" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">打开 GitHub ↗</a>
+          <a class="btn ghost" href="#projects">查看项目档案</a>
+        </div>
+      </div>
+      <dl class="contact-facts reveal">
+        <div><dt class="mono">NAME</dt><dd>洛橙</dd></div>
+        <div><dt class="mono">HANDLE</dt><dd><a href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">Kissshot-2003 ↗</a></dd></div>
+        <div><dt class="mono">ROLE</dt><dd>造价工程师 / 项目经理</dd></div>
+        <div><dt class="mono">FOCUS</dt><dd>造价管理 · 工程数字化 · 开源协作</dd></div>
+        <div><dt class="mono">GITHUB</dt><dd><a href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">github.com/Kissshot-2003 ↗</a></dd></div>
+        <div><dt class="mono">RESPONSE</dt><dd>1–2 个工作日</dd></div>
+      </dl>
+    </div>
+    <div class="contact-meta mono reveal">
+      <span>本页为纯静态页面，无追踪、无 Cookie。</span>
+      <button class="text-link mono" id="printBtn" type="button">打印 / 存为 PDF ↗</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <span class="mono">© 2026 洛橙</span>
+    <span class="mono muted">HAND-WRITTEN HTML / CSS / JS</span>
+  </div>
+  <div class="footer-right mono">
+    <span>DEPLOYED ON CLOUDFLARE PAGES</span>
+    <a href="#top">回到顶部 ↑</a>
+  </div>
+</footer>
+
+<div class="statusbar mono" aria-hidden="true">
+  <div class="sb-group"><span class="sb-label">SEC</span><span id="sbSection">§00 封面</span></div>
+  <div class="sb-group sb-center"><span class="sb-label">LOCAL</span><span id="sbClock">--:--:--</span><span class="sb-label">CST</span></div>
+  <div class="sb-group sb-right">
+    <span class="sb-label">BUILD</span><span>2026.11.16</span>
+    <span class="sb-label">VIEW</span><span id="sbView">--</span>
+    <span class="sb-label">MODE</span><span id="sbMode">LIGHT</span>
+  </div>
+</div>
+
+<div class="palette-backdrop" id="paletteBackdrop" hidden>
+  <div class="palette" role="dialog" aria-modal="true" aria-label="命令面板">
+    <div class="palette-input-row">
+      <span class="mono prompt">›</span>
+      <input id="paletteInput" type="text" placeholder="跳转章节、打开 GitHub、切换主题…" autocomplete="off" spellcheck="false" aria-label="搜索命令">
+      <span class="kbd">ESC</span>
+    </div>
+    <ul class="palette-list" id="paletteList" role="listbox" aria-label="命令列表"></ul>
+    <div class="palette-foot mono">
+      <span><span class="kbd">↑</span><span class="kbd">↓</span> 选择</span>
+      <span><span class="kbd">↵</span> 执行</span>
+      <span><span class="kbd">ESC</span> 关闭</span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
