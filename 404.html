@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — 页面不存在 · 洛橙</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f5f5f1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('lc-theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+<style>
+  .err-wrap {
+    min-height: calc(100svh - 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 40px var(--pad);
+  }
+  .err-code {
+    font-family: var(--mono);
+    font-size: clamp(72px, 18vw, 220px);
+    line-height: 0.86;
+    letter-spacing: -0.07em;
+    font-weight: 700;
+  }
+  .err-code span { color: var(--accent); }
+  .err-title {
+    margin-top: 26px;
+    font-size: clamp(20px, 2.4vw, 30px);
+    letter-spacing: -0.03em;
+  }
+  .err-desc {
+    max-width: 42em;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+  .err-actions { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+  .err-log {
+    margin-top: 44px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 2;
+    color: var(--muted);
+    max-width: 560px;
+  }
+  .err-log b { color: var(--fg); font-weight: 500; }
+  .err-log .red { color: var(--accent); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main id="main" class="err-wrap">
+  <p class="eyebrow"><span class="mark">//</span> HTTP STATUS</p>
+  <h1 class="err-code">4<span>0</span>4</h1>
+  <h2 class="err-title">这一页不在档案里。</h2>
+  <p class="err-desc">链接可能已经失效，或者地址拼错了。回到主页，从章节索引重新进入。</p>
+  <div class="err-actions">
+    <a class="btn solid" href="/">返回主页 <span aria-hidden="true">↗</span></a>
+    <a class="btn ghost" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub 主页 ↗</a>
+  </div>
+  <div class="err-log">
+    <div><b>GET</b> <span id="path">/unknown</span> <span class="red">404</span></div>
+    <div><b>HINT</b> 检查大小写；静态站点没有服务端路由。</div>
+    <div><b>INDEX</b> /#profile · /#experience · /#projects · /#contact</div>
+  </div>
+</main>
+<div class="statusbar mono" aria-hidden="true">
+  <div class="sb-group"><span class="sb-label">SEC</span><span>§404 未找到</span></div>
+  <div class="sb-group sb-center"><span class="sb-label">LOCAL</span><span id="clock">--:--:--</span><span class="sb-label">CST</span></div>
+  <div class="sb-group sb-right"><span class="sb-label">BUILD</span><span>2026.11.16</span><span class="sb-label">MODE</span><span id="mode">LIGHT</span></div>
+</div>
+<script>
+  (function () {
+    var p = document.getElementById('path');
+    if (p) p.textContent = location.pathname + location.search;
+    var m = document.getElementById('mode');
+    if (m) m.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'DARK' : 'LIGHT';
+    function tick() {
+      var c = document.getElementById('clock');
+      if (!c) return;
+      try {
+        c.textContent = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date());
+      } catch (e) { c.textContent = new Date().toTimeString().slice(0, 8); }
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
+</body>
+</html>
