@@ -124,48 +124,63 @@
     <div class="section-head reveal">
       <div class="section-kicker mono">02 / WORK</div>
       <h2 class="section-title">精选实践</h2>
-      <p class="section-desc">聚焦 AI 应用与开发，少量但可核对。</p>
+      <p class="section-desc">来自 GitHub 的真实仓库与上游贡献，均可点开核对。</p>
     </div>
     <div class="project-list">
       <article class="project-card reveal">
         <span class="project-index mono">01</span>
-        <div class="project-media"><img src="assets/project-ai-workspace.svg" alt="AI 工作台示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-media"><img src="assets/project-finetune.svg" alt="LFM3 LoRA 微调训练曲线示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
-          <div class="project-tags mono"><span>DESKTOP</span><span>AI</span><span>RAG</span></div>
-          <h3>橙 AI · 桌面 AI 工作台</h3>
-          <p>自用的桌面 AI 客户端，验证造价场景下的提示词模板、知识库检索与批处理工作流——把 AI 真正接进日常业务的实验场。</p>
+          <div class="project-tags mono"><span>AI · FINE-TUNE</span><span>LoRA / QLoRA</span><span>AMD RDNA1</span></div>
+          <h3>LFM3-1.7B 微调指南 · Liquid4All/cookbook</h3>
+          <p>为 Liquid4All 官方 cookbook 补上一篇 LoRA / QLoRA 微调指南，专门针对 AMD RDNA1（RX 5700 XT）这类老卡，给出可照做的环境与实测步骤（PR #153，审查中）。</p>
+          <p class="project-note"><b>// 评价</b>主流教程几乎都默认 NVIDIA，这篇把"老卡也能微调"变成了一条可复现的路径——补的是资料空白，不是重复造轮子。</p>
         </div>
-        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/Liquid4All/cookbook/pull/153" target="_blank" rel="noopener">PR #153 ↗</a></div>
       </article>
       <article class="project-card reveal">
         <span class="project-index mono">02</span>
-        <div class="project-media"><img src="assets/project-rag.svg" alt="RAG 知识库示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-media"><img src="assets/project-ai-cost.svg" alt="分布式计算状态示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
-          <div class="project-tags mono"><span>LoRA</span><span>RAG</span><span>SKILL</span></div>
-          <h3>AI 工程化实践</h3>
-          <p>大模型微调（LoRA / PEFT）、RAG 知识库搭建与 Skill 封装，把一次性的实验沉淀成可复用的能力模块与 SOP。</p>
+          <div class="project-tags mono"><span>AI INFRA</span><span>Ray</span><span>PYTHON</span></div>
+          <h3>Ray Client 连接失败状态复位 · ray-project/ray</h3>
+          <p>修复一个真实故障：Ray Client 连接失败后进程卡在 Client 模式，后续 init 只抛 AssertionError。补上失败后的模式复位（PR #67385，已提交上游）。</p>
+          <p class="project-note"><b>// 评价</b>分布式训练的"失败后能否干净重试"比"跑通一次"更要命。这种 bug 不影响演示，但直接影响生产可用性。</p>
         </div>
-        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/ray-project/ray/pull/67385" target="_blank" rel="noopener">PR #67385 ↗</a></div>
       </article>
       <article class="project-card reveal">
         <span class="project-index mono">03</span>
-        <div class="project-media"><img src="assets/project-agent.svg" alt="Agent 智能体示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-media"><img src="assets/hero.svg" alt="终端与代码编辑界面示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
-          <div class="project-tags mono"><span>AGENT</span><span>PERSONA</span></div>
-          <h3>群聊读书妖怪</h3>
-          <p>一个安静读群、被 @ 才开口的陪聊 Agent。重点不是话术，而是边界：记得住上下文、不翻旧账、对刷屏和广告冷淡处理。</p>
+          <div class="project-tags mono"><span>AI TOOLING</span><span>OpenCode</span><span>OpenTUI</span></div>
+          <h3>AI 编码工具链上游贡献 · opencode / opentui</h3>
+          <p>给日常在用的 AI 编码工具补文档与输入处理：opencode 中文文档缺失的绑定值、Windows Terminal 的 Ctrl+Tab 注意事项，以及 opentui 在 win32-input-mode 下的键事件解码（PR #1726）。</p>
+          <p class="project-note"><b>// 评价</b>从使用者变成维护者。改的多是小处，但 win32-input-mode 这种细节，恰恰是终端工具在 Windows 上"能不能用"的分界线。</p>
         </div>
-        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/anomalyco/opentui/pull/1726" target="_blank" rel="noopener">PR #1726 ↗</a></div>
       </article>
       <article class="project-card reveal">
         <span class="project-index mono">04</span>
-        <div class="project-media"><img src="assets/project-ai-cost.svg" alt="工程数据智能化示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-media"><img src="assets/project-ai-workspace.svg" alt="桌面应用界面示意" loading="lazy" width="800" height="800"></div>
         <div class="project-content">
-          <div class="project-tags mono"><span>RUST</span><span>TAURI</span><span>DATA</span></div>
-          <h3>开计价 · 数据底座</h3>
-          <p>Rust 投标计价引擎，从人材机含量重算综合单价、生成标准报表。让行业经验先变成干净的数据，再成为 AI 可用的上下文。</p>
+          <div class="project-tags mono"><span>RUST</span><span>EGUI</span><span>GUI + CLI</span></div>
+          <h3>THzip-SpellArchive · 东方同人压缩包归档管理器</h3>
+          <p>自己的主力仓库：zip / 7z / rar / tar 家族统一读写，安全解压优先，含文件名编码打分判定、分卷缺卷检测、checksum / verify 子命令，桌面 GUI 与 CLI 双端（已迭代 30+ PR）。</p>
+          <p class="project-note"><b>// 评价</b>从格式解析到桌面交互的完整闭环。持续维护 30 多个 PR 的过程，比功能清单更能说明工程耐心。</p>
         </div>
-        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003/THzip-SpellArchive" target="_blank" rel="noopener">REPO ↗</a></div>
+      </article>
+      <article class="project-card reveal">
+        <span class="project-index mono">05</span>
+        <div class="project-media"><img src="assets/project-rag.svg" alt="文件容器解析示意" loading="lazy" width="800" height="800"></div>
+        <div class="project-content">
+          <div class="project-tags mono"><span>PYTHON</span><span>造价 × 安全</span><span>CLI</span></div>
+          <h3>bidding-file-extractor · 招标文件容器解析</h3>
+          <p>把造价行业里那些 Base64-ZIP 封装的标书容器（zf / cf 系列）快速解开：CRC-32 / SHA-256 校验、AES 解密钩子、无头下载与 epoint 查看页直链解析。</p>
+          <p class="project-note"><b>// 评价</b>领域知识与工程能力的交叉点——只有真做过标书的人，才会知道该先校验哈希、再谈解析格式。</p>
+        </div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003/bidding-file-extractor" target="_blank" rel="noopener">REPO ↗</a></div>
       </article>
     </div>
   </section>
