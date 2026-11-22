@@ -40,6 +40,7 @@
       <a href="#focus">AI 能力</a>
       <a href="#projects">精选实践</a>
       <a href="#stack">技术栈</a>
+      <a href="#now">动态</a>
       <a href="#about">关于</a>
     </nav>
     <div class="header-actions">
@@ -52,6 +53,55 @@
   </div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 </header>
+
+<!-- ── 左侧固定名片（宽屏） ────────────────────── -->
+<aside class="rail rail-left" aria-label="个人名片">
+  <div class="rail-edge mono" aria-hidden="true">KISSSHOT-2003 · PORTFOLIO · 2026</div>
+  <div class="rail-card">
+    <div class="rail-card-head">
+      <img class="rail-avatar" src="https://github.com/Kissshot-2003.png?size=160" alt="洛橙头像" width="48" height="48">
+      <div>
+        <div class="rail-name">洛橙</div>
+        <div class="rail-role mono">AI 应用工程师</div>
+      </div>
+    </div>
+    <div class="rail-divider"></div>
+    <div class="rail-block">
+      <div class="rail-label mono">CONTACT</div>
+      <a class="rail-mail mono" href="mailto:Karl20070509@live.cn">Karl20070509@live.cn</a>
+      <a class="rail-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="rail-divider"></div>
+    <div class="rail-block">
+      <div class="rail-label mono">STATUS</div>
+      <div class="rail-status"><span class="dot"></span>开放协作 · 接受联系</div>
+      <div class="rail-meta mono">中国 · UTC+8</div>
+    </div>
+    <div class="rail-divider"></div>
+    <div class="rail-block">
+      <div class="rail-label mono">NOW</div>
+      <div class="rail-now">AI 应用开发 / 工程智能化<br>大模型 · Agent · RAG · 工具链</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ── 右侧固定目录（宽屏） ────────────────────── -->
+<aside class="rail rail-right" aria-label="章节目录">
+  <div class="rail-card toc-card">
+    <div class="rail-label mono">INDEX / 06</div>
+    <nav class="toc" id="toc" aria-label="页面章节">
+      <a href="#focus"><span>01</span> AI 能力</a>
+      <a href="#projects"><span>02</span> 精选实践</a>
+      <a href="#stack"><span>03</span> 技术栈</a>
+      <a href="#now"><span>04</span> 最近动态</a>
+      <a href="#about"><span>05</span> 关于我</a>
+      <a href="#contact"><span>06</span> 联系</a>
+    </nav>
+    <div class="rail-divider"></div>
+    <div class="rail-meta mono">SCROLL TO EXPLORE ↓</div>
+  </div>
+  <div class="rail-edge mono" aria-hidden="true">EST. 2016 · HAND-BUILT</div>
+</aside>
 
 <main id="main">
 
@@ -247,10 +297,57 @@
     </ul>
   </section>
 
+  <!-- ── 最近在做什么 ─────────────────────────────── -->
+  <section class="section" id="now">
+    <div class="section-head reveal">
+      <div class="section-kicker mono">04 / NOW</div>
+      <h2 class="section-title">最近在做什么</h2>
+      <p class="section-desc">给访客的一份近况快照，持续更新。</p>
+    </div>
+    <div class="now-grid">
+      <div class="now-main reveal">
+        <div class="now-live mono"><span class="live-dot"></span>NOW / 2026-11</div>
+        <p class="now-lead">把工程造价的老本行，和 AI 应用开发的新工具，接到同一条数据链上。</p>
+        <p>目前重心在三件事：给上游项目补 AI 时代的实测空白（AMD 老卡微调、Ray 故障复位）；维护自己的 Rust / 终端小工具；把造价行业那些"打不开的标书、算不清的组价"继续做成可校验的工具。</p>
+        <div class="now-tags mono"><span>AI 微调</span><span>开源上游</span><span>Rust 工具</span><span>工程数字化</span></div>
+      </div>
+      <ol class="now-list">
+        <li class="reveal">
+          <span class="now-date mono">2026.11</span>
+          <div class="now-item">
+            <strong>个人主页改版上线</strong>
+            <p>换成 OpenCode 风格，右侧是 P3 琥珀 CRT 终端的动态复刻——点它可跳到我的 P3 项目。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="now-date mono">2026.11</span>
+          <div class="now-item">
+            <strong>LFM3-1.7B 微调指南（PR 审查中）</strong>
+            <p>给 Liquid4All cookbook 补 LoRA / QLoRA 微调指南，专攻 AMD RDNA1 老卡。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="now-date mono">2026.11</span>
+          <div class="now-item">
+            <strong>THzip-SpellArchive 持续迭代</strong>
+            <p>东方同人压缩包归档管理器，30+ PR 打磨 GUI + CLI 双端与安全解压。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="now-date mono">2026.11</span>
+          <div class="now-item">
+            <strong>P3 琥珀磷光终端</strong>
+            <p>native Rust + egui + 真实 PTY，把 P3 荧光粉 CRT 的扫描线与辉光做成桌面应用。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ── 关于 ─────────────────────────────────────── -->
   <section class="section" id="about">
     <div class="section-head reveal">
-      <div class="section-kicker mono">04 / ABOUT</div>
+      <div class="section-kicker mono">05 / ABOUT</div>
       <h2 class="section-title">关于我</h2>
     </div>
     <div class="about-grid">
@@ -270,7 +367,7 @@
   <!-- ── 联系 ─────────────────────────────────────── -->
   <section class="section contact" id="contact">
     <div class="contact-card reveal">
-      <div class="section-kicker mono">05 / CONTACT</div>
+      <div class="section-kicker mono">06 / CONTACT</div>
       <h2>聊聊 AI、工具或开源</h2>
       <p>有 AI 应用、工程数据工具或开源协作的想法，来 GitHub 或邮箱找我。通常 1–2 个工作日内回复。</p>
       <a class="contact-link mono" href="https://github.com/Kissshot-2003" target="_blank" rel="noopener">github.com/Kissshot-2003 ↗</a>
