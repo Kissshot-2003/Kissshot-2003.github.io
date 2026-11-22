@@ -33,6 +33,10 @@
   /* ── 顶栏状态 / 滚动进度 ──────────────────────────── */
   var header = document.getElementById('siteHeader');
   var progress = document.getElementById('scrollProgress');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var tocSections = tocLinks.map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
   var ticking = false;
 
   function onScroll() {
@@ -41,6 +45,20 @@
     var max = document.documentElement.scrollHeight - window.innerHeight;
     if (progress) progress.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0).toFixed(2) + '%';
     if (header) header.classList.toggle('is-scrolled', y > 20);
+    // 右侧目录高亮：找到当前视口顶部所在的章节
+    if (tocLinks.length) {
+      var probe = y + window.innerHeight * 0.3;
+      var current = null;
+      for (var i = 0; i < tocSections.length; i++) {
+        if (tocSections[i].offsetTop <= probe) current = tocSections[i].id;
+      }
+      tocLinks.forEach(function (a) {
+        var on = current && a.getAttribute('href') === '#' + current;
+        a.classList.toggle('active', !!on);
+        if (on) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+    }
   }
   function requestScroll() {
     if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
