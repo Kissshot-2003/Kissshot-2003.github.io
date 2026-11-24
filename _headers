@@ -1,3 +1,8 @@
+# 注意：GitHub Pages 不解析 _headers（这是 Netlify / Cloudflare Pages 的语法）。
+# 本文件在当前托管环境下不产生任何效果，仅作为迁移到支持 _headers 的平台时备用。
+# 迁移前检查：头像已自托管为 assets/avatar.png，页面无外链图片，
+# 因此 img-src 'self' data: 足够；若以后恢复 GitHub 头像外链，需加 https://github.com。
+
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

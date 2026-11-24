@@ -30,6 +30,10 @@
   }
   syncTheme();
 
+  /* ── 页脚年份：随年份自动更新 ───────────────────── */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   /* ── 顶栏状态 / 滚动进度 ──────────────────────────── */
   var header = document.getElementById('siteHeader');
   var progress = document.getElementById('scrollProgress');
@@ -55,7 +59,7 @@
       tocLinks.forEach(function (a) {
         var on = current && a.getAttribute('href') === '#' + current;
         a.classList.toggle('active', !!on);
-        if (on) a.setAttribute('aria-current', 'true');
+        if (on) a.setAttribute('aria-current', 'location');
         else a.removeAttribute('aria-current');
       });
     }
@@ -109,6 +113,9 @@
   /* ── 数字计数 ─────────────────────────────────────── */
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    // 有 data-since 的项按当前年份自动推算，避免逐年手改
+    var since = parseInt(el.getAttribute('data-since'), 10);
+    if (since) target = Math.max(0, new Date().getFullYear() - since);
     if (reduce) { el.textContent = target; return; }
     var start = performance.now();
     var dur = 1100;
@@ -137,6 +144,8 @@
   var p3Text = document.getElementById('p3Text');
   if (p3Text) {
     // 模拟 P3 自检 /  phosphor 测试画面的输出（HTML 片段，class 控制明暗/反显）
+    var d = new Date();
+    var stamp = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
     var lines = [
       '<span class="hi">P3 phosphor test pattern</span>',
       '',
@@ -152,7 +161,7 @@
       'dim this line is dim, <span class="hi">hold this line is bold</span>',
       'inverse <span class="inv">selected block</span> underline underlined',
       '',
-      '中文输出: 寿县项目 工程量清单 组价 2026-11-02',
+      '中文输出: 寿县项目 工程量清单 组价 ' + stamp,
       '',
       '<span class="dim">net   1042 up   84 down   12.4 ms</span>',
       '<span class="dim">mem   3164 / 16384 MB   cpu  07 %</span>',

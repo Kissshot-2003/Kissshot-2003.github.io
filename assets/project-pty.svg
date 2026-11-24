@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#1a1a1a"/>
+  <g font-family="monospace" font-size="11" fill="#6b6b6b"><text x="56" y="64">bun-pty / native library loader</text></g>
+  <rect x="56" y="82" width="688" height="1" fill="#2e2e2e"/>
+
+  <!-- 链路 -->
+  <rect x="56" y="150" width="170" height="90" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <g font-family="monospace" font-size="13" fill="#e5e5e5"><text x="76" y="188">Bun app</text></g>
+  <g font-family="monospace" font-size="10" fill="#6b6b6b"><text x="76" y="212">spawn / PTY</text></g>
+
+  <rect x="315" y="150" width="170" height="90" fill="#1a2a38" stroke="#007aff" stroke-opacity=".7"/>
+  <g font-family="monospace" font-size="13" fill="#8bb9e8"><text x="335" y="188">rust-pty</text></g>
+  <g font-family="monospace" font-size="10" fill="#4a6a8a"><text x="335" y="212">portable-pty 0.8.1</text></g>
+
+  <rect x="574" y="150" width="170" height="90" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <g font-family="monospace" font-size="13" fill="#e5e5e5"><text x="594" y="188">shell</text></g>
+  <g font-family="monospace" font-size="10" fill="#6b6b6b"><text x="594" y="212">/bin/sh · openpty</text></g>
+
+  <g stroke="#007aff" stroke-width="1.5" fill="none"><path d="M226 195 H315"/><path d="M485 195 H574"/></g>
+
+  <!-- 四个平台产物 -->
+  <g font-family="monospace" font-size="11" fill="#6b6b6b"><text x="56" y="300">npm tarball / loader branches</text></g>
+  <rect x="56" y="316" width="160" height="50" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <g font-family="monospace" font-size="11" fill="#9a9a9a"><text x="72" y="336">linux  → .so</text><text x="72" y="354">darwin → .dylib</text></g>
+  <rect x="232" y="316" width="160" height="50" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <g font-family="monospace" font-size="11" fill="#9a9a9a"><text x="248" y="336">win32  → .dll</text><text x="248" y="354">_musl / _arm64</text></g>
+  <rect x="408" y="316" width="336" height="50" fill="#1a2a38" stroke="#007aff" stroke-opacity=".8"/>
+  <g font-family="monospace" font-size="11" fill="#8bb9e8"><text x="424" y="336">freebsd → librust_pty_freebsd.so</text><text x="424" y="354">静态可分析的 require 分支 · 独立命名避免与 linux .so 冲突</text></g>
+
+  <!-- CI VM -->
+  <g font-family="monospace" font-size="11" fill="#6b6b6b"><text x="56" y="422">CI: x86_64-unknown-freebsd leg (vmactions/freebsd-vm)</text></g>
+  <rect x="56" y="440" width="688" height="70" fill="#141414" stroke="#333"/>
+  <g font-family="monospace" font-size="12" fill="#98c379"><text x="76" y="468">✓ cargo build --release  FreeBSD 15.1-RELEASE amd64</text></g>
+  <g font-family="monospace" font-size="12" fill="#98c379"><text x="76" y="494">✓ compiled Bun binary  POST /api/pty  pid=5171  exitCode=7</text></g>
+
+  <!-- 终端输出 -->
+  <rect x="56" y="548" width="688" height="180" fill="#141414" stroke="#333"/>
+  <rect x="56" y="548" width="688" height="28" fill="#242424"/>
+  <g font-family="monospace" font-size="10" fill="#8b8b8b"><text x="72" y="567">PR #55 · merged</text></g>
+  <g font-family="monospace" font-size="12" fill="#6b6b6b">
+    <text x="76" y="606">$ bun -e 'spawn("/bin/sh")'</text>
+    <text x="76" y="636" fill="#98c379">✓ PTY_OK</text>
+    <text x="76" y="666">$ file librust_pty_freebsd.so</text>
+    <text x="76" y="696" fill="#9a9a9a">ELF 64-bit · FreeBSD · shared object</text>
+  </g>
+</svg>

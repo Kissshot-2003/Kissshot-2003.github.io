@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#1a1a1a"/>
+
+  <!-- 终端窗口 -->
+  <rect x="50" y="70" width="700" height="660" fill="#1e1e1e" stroke="#3a3a3a"/>
+  <rect x="50" y="70" width="700" height="34" fill="#242424"/>
+  <circle cx="72" cy="87" r="5" fill="#ff5f56"/><circle cx="90" cy="87" r="5" fill="#ffbd2e"/><circle cx="108" cy="87" r="5" fill="#27c93f"/>
+  <g font-family="monospace" font-size="11" fill="#6b6b6b"><text x="300" y="91">edge-tui · text mode</text></g>
+
+  <!-- 标签栏 -->
+  <rect x="50" y="104" width="700" height="30" fill="#191919"/>
+  <rect x="62" y="108" width="150" height="22" fill="#2b2b2b" stroke="#007aff" stroke-opacity=".6"/>
+  <rect x="220" y="108" width="120" height="22" fill="#202020" stroke="#333"/>
+  <rect x="348" y="108" width="120" height="22" fill="#202020" stroke="#333"/>
+  <g font-family="monospace" font-size="10" fill="#8bb9e8"><text x="72" y="123">[1] search</text></g>
+  <g font-family="monospace" font-size="10" fill="#6b6b6b"><text x="230" y="123">[2] docs</text><text x="358" y="123">[3] login</text></g>
+
+  <!-- 正文行 -->
+  <g fill="#5a5a5a">
+    <rect x="70" y="164" width="360" height="7"/><rect x="70" y="188" width="410" height="7"/>
+    <rect x="70" y="212" width="330" height="7"/><rect x="70" y="236" width="390" height="7"/>
+    <rect x="70" y="260" width="280" height="7"/>
+  </g>
+  <!-- 控件行 -->
+  <rect x="70" y="296" width="330" height="30" fill="#1a2a38" stroke="#007aff" stroke-opacity=".5"/>
+  <g font-family="monospace" font-size="11" fill="#8bb9e8"><text x="82" y="316">▢ 搜索框 [i 输入]</text></g>
+  <g fill="#5a5a5a"><rect x="70" y="352" width="410" height="7"/><rect x="70" y="376" width="360" height="7"/></g>
+  <!-- 选中元素高亮 -->
+  <rect x="70" y="408" width="410" height="28" fill="#2b2416" stroke="#ffb643" stroke-opacity=".6"/>
+  <g font-family="monospace" font-size="11" fill="#ffb643"><text x="82" y="427">▸ 03 登录 / 注册</text></g>
+  <g fill="#5a5a5a"><rect x="70" y="464" width="380" height="7"/><rect x="70" y="488" width="340" height="7"/></g>
+
+  <!-- 二维码区域：模块矩阵，不降采样 -->
+  <rect x="540" y="150" width="180" height="180" fill="#ffffff" stroke="#6b6b6b"/>
+  <g fill="#111111">
+    <rect x="554" y="164" width="14" height="14"/><rect x="582" y="164" width="14" height="14"/><rect x="596" y="164" width="14" height="14"/><rect x="624" y="164" width="14" height="14"/><rect x="652" y="164" width="14" height="14"/><rect x="680" y="164" width="14" height="14"/>
+    <rect x="554" y="178" width="14" height="14"/><rect x="596" y="178" width="14" height="14"/><rect x="638" y="178" width="14" height="14"/><rect x="666" y="178" width="14" height="14"/>
+    <rect x="554" y="192" width="14" height="14"/><rect x="568" y="192" width="14" height="14"/><rect x="582" y="192" width="14" height="14"/><rect x="610" y="192" width="14" height="14"/><rect x="624" y="192" width="14" height="14"/><rect x="652" y="192" width="14" height="14"/><rect x="680" y="192" width="14" height="14"/>
+    <rect x="582" y="206" width="14" height="14"/><rect x="610" y="206" width="14" height="14"/><rect x="638" y="206" width="14" height="14"/><rect x="680" y="206" width="14" height="14"/>
+    <rect x="554" y="220" width="14" height="14"/><rect x="582" y="220" width="14" height="14"/><rect x="610" y="220" width="14" height="14"/><rect x="652" y="220" width="14" height="14"/><rect x="666" y="220" width="14" height="14"/>
+    <rect x="568" y="234" width="14" height="14"/><rect x="596" y="234" width="14" height="14"/><rect x="624" y="234" width="14" height="14"/><rect x="666" y="234" width="14" height="14"/><rect x="694" y="234" width="14" height="14"/>
+    <rect x="554" y="248" width="14" height="14"/><rect x="582" y="248" width="14" height="14"/><rect x="624" y="248" width="14" height="14"/><rect x="638" y="248" width="14" height="14"/><rect x="680" y="248" width="14" height="14"/>
+    <rect x="568" y="262" width="14" height="14"/><rect x="610" y="262" width="14" height="14"/><rect x="638" y="262" width="14" height="14"/><rect x="666" y="262" width="14" height="14"/><rect x="694" y="262" width="14" height="14"/>
+    <rect x="554" y="276" width="14" height="14"/><rect x="596" y="276" width="14" height="14"/><rect x="624" y="276" width="14" height="14"/><rect x="652" y="276" width="14" height="14"/><rect x="680" y="276" width="14" height="14"/>
+    <rect x="582" y="290" width="14" height="14"/><rect x="610" y="290" width="14" height="14"/><rect x="666" y="290" width="14" height="14"/><rect x="694" y="290" width="14" height="14"/>
+    <rect x="554" y="304" width="14" height="14"/><rect x="568" y="304" width="14" height="14"/><rect x="596" y="304" width="14" height="14"/><rect x="624" y="304" width="14" height="14"/><rect x="652" y="304" width="14" height="14"/><rect x="680" y="304" width="14" height="14"/>
+  </g>
+  <g font-family="monospace" font-size="10" fill="#6b6b6b"><text x="540" y="350">1 module = 1 cell · scannable</text></g>
+
+  <!-- 底部状态栏 -->
+  <rect x="50" y="676" width="700" height="54" fill="#141414"/>
+  <g font-family="monospace" font-size="11" fill="#98c379"><text x="70" y="700">✓ ready · 全文 412 行已装入内存</text></g>
+  <g font-family="monospace" font-size="11" fill="#6b6b6b"><text x="70" y="720">j/k 滚动 · v 元素清单 · i 输入 · m 切模式</text></g>
+</svg>

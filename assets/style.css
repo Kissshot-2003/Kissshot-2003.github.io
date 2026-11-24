@@ -83,7 +83,7 @@ img { display: block; max-width: 100%; }
 }
 .toc a span { color: var(--text-3); font-size: 9px; }
 .toc a:hover { color: var(--text); }
-.toc a.active { color: var(--accent); border-left-color: var(--accent); background: rgba(0,122,255,.05); }
+.toc a.active { color: var(--accent); border-left-color: var(--accent); background: rgba(0,122,255,.05); background: color-mix(in srgb, var(--accent) 6%, transparent); }
 .toc a.active span { color: var(--accent); }
 
 /* ── 最近在做什么 ────────────────────────────────── */
@@ -282,8 +282,9 @@ img { display: block; max-width: 100%; }
   display: grid; grid-template-columns: 52px 200px 1fr 160px; gap: 24px; align-items: center;
   padding: 22px 0; border-bottom: 1px solid var(--line);
 }
-.project-media { width: 200px; height: 112px; overflow: hidden; background: var(--ink); border: 1px solid var(--line-2); }
-.project-media img { width: 100%; height: 100%; object-fit: cover; }
+/* 配图为方形 SVG，用 contain 避免裁切；底色与 SVG 背景一致，留白不可见 */
+.project-media { width: 200px; height: 112px; overflow: hidden; background: #1a1a1a; border: 1px solid var(--line-2); }
+.project-media img { width: 100%; height: 100%; object-fit: contain; }
 .project-index { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .project-content h3 { font-family: var(--mono); font-size: 15px; font-weight: 500; margin: 0 0 7px; letter-spacing: -.02em; }
 .project-content p { font-size: 12.5px; color: var(--text-2); margin: 0; line-height: 1.7; max-width: 62em; }
@@ -334,13 +335,28 @@ img { display: block; max-width: 100%; }
 .footer span { font-family: var(--mono); font-size: 10px; color: var(--text-3); letter-spacing: .04em; }
 
 /* ── 显现 ─────────────────────────────────────────── */
-.reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
-.reveal.is-in { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* 键盘焦点：所有可交互元素统一可见焦点环 */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 /* ── 响应式 ───────────────────────────────────────── */
-/* 宽屏才显示左右固定栏：内容区 1380 + 两侧各约 250 = 需约 1880px */
+/* 左右固定栏：1500px 起显示紧凑版，1880px 起恢复完整尺寸 */
+@media (min-width: 1500px) {
+  :root { --max: 1080px; }
+  .rail { display: block; width: 160px; }
+  .rail-left { left: max(16px, calc(50% - 720px)); }
+  .rail-right { right: max(16px, calc(50% - 720px)); }
+}
 @media (min-width: 1880px) {
-  .rail { display: block; }
+  :root { --max: 1380px; }
+  .rail { width: 210px; }
+  .rail-left { left: max(20px, calc(50% - 940px)); }
+  .rail-right { right: max(20px, calc(50% - 940px)); }
 }
 @media (max-width: 1080px) {
   .now-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -372,5 +388,5 @@ img { display: block; max-width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
