@@ -30,6 +30,31 @@
   }
   syncTheme();
 
+  /* ── 移动端目录 ───────────────────────────────────── */
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  if (navToggle && mobileNav) {
+    function closeMobileNav() {
+      mobileNav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', '打开目录');
+    }
+    navToggle.addEventListener('click', function () {
+      var open = mobileNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? '关闭目录' : '打开目录');
+    });
+    mobileNav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeMobileNav();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 680) closeMobileNav();
+    });
+  }
+
   /* ── 页脚年份：随年份自动更新 ───────────────────── */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -37,7 +62,7 @@
   /* ── 顶栏状态 / 滚动进度 ──────────────────────────── */
   var header = document.getElementById('siteHeader');
   var progress = document.getElementById('scrollProgress');
-  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a, .mobile-nav a'));
   var tocSections = tocLinks.map(function (a) {
     return document.querySelector(a.getAttribute('href'));
   }).filter(Boolean);
@@ -49,7 +74,7 @@
     var max = document.documentElement.scrollHeight - window.innerHeight;
     if (progress) progress.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0).toFixed(2) + '%';
     if (header) header.classList.toggle('is-scrolled', y > 20);
-    // 右侧目录高亮：找到当前视口顶部所在的章节
+    // 目录高亮（右侧固定栏 / 移动端面板）：找到当前视口顶部所在的章节
     if (tocLinks.length) {
       var probe = y + window.innerHeight * 0.3;
       var current = null;
