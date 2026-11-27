@@ -223,8 +223,9 @@ img { display: block; max-width: 100%; }
 .p3-text {
   margin: 0; color: #ffb643; font-family: var(--mono); font-size: 11px; line-height: 1.5;
   text-shadow: 0 0 4px rgba(255,170,40,.55), 0 0 10px rgba(255,140,20,.25);
-  min-height: 232px; white-space: pre-wrap; word-break: break-all;
+  min-height: 360px; white-space: pre-wrap; word-break: break-all;
 }
+.p3-text .p3-art { line-height: 1.15; }
 .p3-text .dim { color: #8a5c1f; text-shadow: none; }
 .p3-text .hi { color: #ffd27a; text-shadow: 0 0 6px rgba(255,190,60,.8); }
 .p3-text .inv { background: #ffb643; color: #0b0805; text-shadow: none; padding: 0 2px; }
@@ -416,7 +417,7 @@ img { display: block; max-width: 100%; }
   .hero-stats dd .mono { font-size: 20px; }
   /* Bad Apple 剪影 56 字符宽，窄屏缩小字号避免折行破坏剪影 */
   .p3-screen { padding: 12px 10px; }
-  .p3-text { font-size: 8.5px; min-height: 190px; }
+  .p3-text { font-size: 8.5px; min-height: 280px; }
   .footer { padding: 24px 16px 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
