@@ -182,86 +182,31 @@
       'colours 31-36: 31 32 33 34 35 36',
       '中文输出: 寿县项目 工程量清单 组价 ' + stamp,
       '',
-      'Loading PROFILE.DAT <span class="dim">[████████████] 100%</span>',
+      '<span class="dim">$</span> ls ~/featured --open-source',
       ''
     ];
 
-    // 签名帧：头像 ASCII 肖像 + 「洛橙」字符点阵
-    // （由 assets/avatar.png 与 SimHei 点阵离线生成，字符密度梯度 @#%*+=-.，水平双倍补偿宽高比）
-    var SIG_AVATAR = [
-      "........++@@++....  ++####==............",
-      "..++@@####@@++==##@@@@@@@@######++++++==",
-      "++++++@@@@####@@@@@@##@@######@@##@@####",
-      "++++....++@@@@@@@@@@@@@@############@@##",
-      "++##....##@@@@@@@@@@@@@@@@####@@####@@##",
-      "++@@==++@@@@@@@@@@@@@@@@@@@@++####++@@##",
-      "==##++##@@@@@@@@@@@@@@@@@@@@++##++####@@",
-      "..++####@@@@####@@@@@@@@@@@@##@@@@##@@##",
-      "++######@@####@@@@@@@@@@@@@@########@@++",
-      "@@##++######@@@@@@@@@@@@@@@@####++####++",
-      "##==..####======########++############++",
-      "......##++==++++##@@##========##########",
-      "......++######++@@@@@@++++##==##########",
-      "......++##@@@@@@@@@@@@@@##@@######++##++",
-      "....++##++@@@@@@@@@@@@@@@@@@@@##==++##==",
-      "++++##++==++##################++..==####",
-      "##@@##......==############==++....##@@##",
-      "##@@##....++@@##++++####@@##....####++##",
-      "##++@@##==@@##############@@++..##++..##",
-      "##..##@@++@@@@######@@@@##@@##..++======"
-    ];
-    var SIG_NAME = [
-      "....++......####......................##....++++++++##++##..",
-      "..++####....##########++..............##....++++##..####....",
-      "......##..####++....##............++++##++++##++##..##++++##",
-      "........++##++##..####..............++##++..####++..++####..",
-      "..##++........######..................##....##########++##++",
-      "..++##........######................++##++####..........++##",
-      "........++####++..++######..........######++++############..",
-      "....++..##############++++........++####..++++##......++##..",
-      "....##....++##......##++..........++..##....++############..",
-      "..++##....++++......##++..............##......##++....##....",
-      "..##++....++##++++++##++..............##......++##....##....",
-      "++##......++##++++++##++..............##..++################",
-      "..........++++......++................++...................."
-    ];
-    var SIG_W = 60;
-    function sigWidth(s) {
-      var w = 0;
-      for (var i = 0; i < s.length; i++) w += s.charCodeAt(i) > 0x2e80 ? 2 : 1;
-      return w;
-    }
-    function sigCenter(row, cls) {
-      row = row.replace(/\s+$/, '');
-      var lead = Math.max(0, Math.floor((SIG_W - sigWidth(row)) / 2));
-      return '<span class="' + cls + '">' + ' '.repeat(lead) + row + '</span>';
-    }
+    // 精选项目：无说明，仅序号 + 名称，光标轮播切换
+    var PROJECTS = ['p3', 'edge-tui', 'THzip-SpellArchive', 'heterogeneous-tp-poc', 'bun-pty', 'OpenMouse', 'perihub-scoop'];
 
-    function sigLines() {
+    function listHtml(active) {
       var out = [];
-      SIG_AVATAR.forEach(function (r) { out.push(sigCenter(r, 'hi')); });
-      out.push('');
-      SIG_NAME.forEach(function (r) { out.push(sigCenter(r, 'hi')); });
-      out.push('');
-      out.push(sigCenter('@Kissshot-2003 · AI 应用工程师', 'dim'));
-      return out;
-    }
-
-    function showWithCaret(html) {
-      p3Text.innerHTML = html + '<span class="p3-caret"></span>';
+      for (var i = 0; i < PROJECTS.length; i++) {
+        var num = ('0' + (i + 1)).slice(-2);
+        var mark = i === active ? '>' : ' ';
+        var cls = i === active ? 'hi' : 'dim';
+        out.push('<span class="' + cls + '">' + mark + ' ' + num + '  ' + PROJECTS[i] + '</span>');
+      }
+      return out.join('\n');
     }
 
     if (reduce) {
-      // 静态兜底：仅开机日志（不动，尊重 reduced-motion）
-      p3Text.innerHTML = lines.join('\n') + '<span class="p3-caret"></span>';
+      // 静态：日志 + 列表（第一项高亮，不轮播）
+      p3Text.innerHTML = lines.join('\n') + listHtml(0) + '<span class="p3-caret"></span>';
     } else {
       var li = 0;
       function typeLine() {
-        if (li >= lines.length) {
-          // 日志完成：短暂停留后清屏，逐行打印签名
-          window.setTimeout(showSignature, 700);
-          return;
-        }
+        if (li >= lines.length) { printList(); return; }
         var line = lines[li];
         var plain = line.replace(/<[^>]*>/g, '');
         p3Text.innerHTML += (li ? '\n' : '') + line;
@@ -270,24 +215,27 @@
         window.setTimeout(typeLine, delay);
       }
 
-      // 签名逐行打印（打印机效果），停留一段时间后清屏重播整个循环
-      function showSignature() {
-        var rows = sigLines();
+      // 列表逐行打出，然后光标在项目间轮播
+      function printList() {
+        var base = p3Text.innerHTML + '\n';
         var i = 0;
         function step() {
-          if (i >= rows.length) {
-            window.setTimeout(function retry() {
-              if (document.hidden) { window.setTimeout(retry, 4000); return; }
-              p3Text.innerHTML = '';
-              li = 0;
-              typeLine();
-            }, 7000);
+          if (i >= PROJECTS.length) {
+            var active = 0;
+            function show() {
+              p3Text.innerHTML = base + listHtml(active) + '<span class="p3-caret"></span>';
+            }
+            show();
+            (function cycle() {
+              active = (active + 1) % PROJECTS.length;
+              show();
+              window.setTimeout(cycle, 1600);
+            })();
             return;
           }
-          var body = rows.slice(0, i + 1).join('\n');
-          p3Text.innerHTML = '<span class="p3-art">' + body + '</span><span class="p3-caret"></span>';
+          p3Text.innerHTML = base + listHtml(-1).split('\n').slice(0, i + 1).join('\n') + '<span class="p3-caret"></span>';
           i++;
-          window.setTimeout(step, 55);
+          window.setTimeout(step, 95);
         }
         step();
       }
