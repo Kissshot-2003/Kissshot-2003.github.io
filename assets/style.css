@@ -414,6 +414,9 @@ img { display: block; max-width: 100%; }
   .project-meta { grid-column: 2; text-align: left; margin-top: 12px; }
   .hero-stats > div { padding: 0 10px; }
   .hero-stats dd .mono { font-size: 20px; }
+  /* Bad Apple 剪影 56 字符宽，窄屏缩小字号避免折行破坏剪影 */
+  .p3-screen { padding: 12px 10px; }
+  .p3-text { font-size: 8.5px; min-height: 190px; }
   .footer { padding: 24px 16px 40px; }
 }
 @media (prefers-reduced-motion: reduce) {

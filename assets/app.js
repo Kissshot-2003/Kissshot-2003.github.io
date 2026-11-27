@@ -165,12 +165,13 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
-  /* ── P3 终端：逐行打字动画 ───────────────────────── */
+  /* ── P3 终端：开机自检 + Bad Apple!! 剪影舞蹈 ────── */
   var p3Text = document.getElementById('p3Text');
   if (p3Text) {
-    // 模拟 P3 自检 /  phosphor 测试画面的输出（HTML 片段，class 控制明暗/反显）
     var d = new Date();
     var stamp = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
+    // 开机自检日志（打字阶段）
     var lines = [
       '<span class="hi">P3 phosphor test pattern</span>',
       '',
@@ -178,52 +179,123 @@
       '<span class="dim">[  OK  ] tube bias .................. 62 V</span>',
       '<span class="dim">[ WARN ] no such device: /dev/radio0</span>',
       '',
-      'console.cpp      1942',
-      'graphics.lib    12003',
-      'radio.bin       35911',
-      '',
       'colours 31-36: 31 32 33 34 35 36',
-      'dim this line is dim, <span class="hi">hold this line is bold</span>',
-      'inverse <span class="inv">selected block</span> underline underlined',
-      '',
       '中文输出: 寿县项目 工程量清单 组价 ' + stamp,
       '',
-      '<span class="dim">net   1042 up   84 down   12.4 ms</span>',
-      '<span class="dim">mem   3164 / 16384 MB   cpu  07 %</span>',
-      '<span class="dim">disk  C: 412 GB free of 1024 GB</span>',
-      '',
-      'Hashing firmware [████████░░░░░░░░] 52%',
+      'Loading BAD_APPLE.DAT <span class="dim">[████████████] 100%</span>',
+      '<span class="hi">&gt;&gt; NOW PLAYING — BAD APPLE!! &lt;&lt;</span>',
       ''
     ];
 
+    // Bad Apple!! 影绘 · 三帧剪影（像素稿 26×16，水平 ×2 修正宽高比）
+    // f1 左摆 / f2 居中 / f3 右摆；裙摆、双马尾与手臂随节拍摆动
+    var BA_FRAMES = [
+      [
+        "                            ████████",
+        "                          ████████████",
+        "  ████                    ████████████",
+        "  ██████                ████████████",
+        "  ██████                ████████████          ████",
+        "    ████            ████████████████        ██████",
+        "                  ████████████████          ████",
+        "                ████████████████████",
+        "              ████████████████████████",
+        "            ████████████████████████████",
+        "        ████████████████████████████████████",
+        "      ████████████████████████████████████████",
+        "    ██████████████████████████████████████████",
+        "          ████████                  ████████",
+        "        ██████                      ██████",
+        "      ██████                          ██████"
+      ],
+      [
+        "                        ████████",
+        "                      ████████████",
+        "    ██                ████████████                ██",
+        "  ██████              ████████████              ██████",
+        "  ██████              ████████████              ██████",
+        "    ████            ████████████████            ████",
+        "                    ████████████████",
+        "    ██            ████████████████████            ██",
+        "  ██████        ████████████████████████        ██████",
+        "  ██████    ████████████████████████████████    ██████",
+        "    ██    ████████████████████████████████████    ██",
+        "        ████████████████████████████████████████",
+        "        ██████████████████████████████████████████",
+        "            ████████                  ████████",
+        "            ██████                    ██████",
+        "          ██████                        ██████"
+      ],
+      [
+        "                    ████████",
+        "                  ████████████",
+        "                  ████████████                    ████",
+        "                    ████████████                ██████",
+        "      ████          ████████████                ██████",
+        "      ██████        ████████████████            ████",
+        "        ████          ████████████████",
+        "                    ████████████████████",
+        "                  ████████████████████████",
+        "                ████████████████████████████",
+        "            ████████████████████████████████████",
+        "          ████████████████████████████████████████",
+        "          ██████████████████████████████████████████",
+        "            ████████                  ████████",
+        "              ██████                      ██████",
+        "            ██████                          ██████"
+      ]
+    ];
+
+    function baFrameHtml(frame) {
+      var body = frame.map(function (l) {
+        return '<span class="hi">' + l + '</span>';
+      }).join('\n');
+      return '<span class="dim">— BAD APPLE!! · SHADOW ART —</span>\n\n' + body;
+    }
+
+    function showWithCaret(html) {
+      p3Text.innerHTML = html + '<span class="p3-caret"></span>';
+    }
+
     if (reduce) {
+      // 静态兜底：仅开机日志（不动，尊重 reduced-motion）
       p3Text.innerHTML = lines.join('\n') + '<span class="p3-caret"></span>';
     } else {
       var li = 0;
       function typeLine() {
         if (li >= lines.length) {
-          p3Text.innerHTML += '<span class="p3-caret"></span>';
-          // 循环：磷光屏停留一段时间后清屏重播（标签页隐藏时顺延，避免后台空转）
-          window.setTimeout(function retry() {
-            if (document.hidden) { window.setTimeout(retry, 4000); return; }
-            typeLineRestart();
-          }, 7000);
+          playBadApple();
           return;
         }
         var line = lines[li];
-        // 去标签取纯文本长度，用于逐字符推进
         var plain = line.replace(/<[^>]*>/g, '');
-        // 逐行整行出现，行间有节奏；用 requestAnimationFrame 保证可见性
         p3Text.innerHTML += (li ? '\n' : '') + line;
         li++;
         var delay = plain.length > 30 ? 150 : (li < 6 ? 110 : 90);
         window.setTimeout(typeLine, delay);
       }
-      function typeLineRestart() {
-        p3Text.innerHTML = '';
-        li = 0;
-        typeLine();
+
+      // 影绘播放：f1→f2→f3→f2 往复摆动，约 11 秒后清屏重播整个循环
+      function playBadApple() {
+        var seq = [0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1];
+        var i = 0;
+        function step() {
+          if (i >= seq.length) {
+            window.setTimeout(function retry() {
+              if (document.hidden) { window.setTimeout(retry, 4000); return; }
+              p3Text.innerHTML = '';
+              li = 0;
+              typeLine();
+            }, 3500);
+            return;
+          }
+          showWithCaret(baFrameHtml(BA_FRAMES[seq[i]]));
+          i++;
+          window.setTimeout(step, 620);
+        }
+        step();
       }
+
       // 等开机动画（约 .9s）结束后开始打字
       window.setTimeout(typeLine, 1000);
     }
