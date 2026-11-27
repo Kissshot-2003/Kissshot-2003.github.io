@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#14100a"/>
+  <g font-family="monospace" font-size="11" fill="#7a5c28"><text x="56" y="64">p3 / amber phosphor terminal</text></g>
+  <rect x="56" y="82" width="688" height="1" fill="#33270f"/>
+
+  <!-- 信号链路 -->
+  <rect x="56" y="140" width="170" height="86" fill="#1c150a" stroke="#4a3a1a"/>
+  <g font-family="monospace" font-size="13" fill="#e8d5a8"><text x="76" y="176">egui UI</text></g>
+  <g font-family="monospace" font-size="10" fill="#8a6c34"><text x="76" y="200">renderer / keyboard</text></g>
+
+  <rect x="315" y="140" width="170" height="86" fill="#241a08" stroke="#ffb643" stroke-opacity=".8"/>
+  <g font-family="monospace" font-size="13" fill="#ffcf70"><text x="335" y="176">p3 core</text></g>
+  <g font-family="monospace" font-size="10" fill="#a8803c"><text x="335" y="200">native Rust</text></g>
+
+  <rect x="574" y="140" width="170" height="86" fill="#1c150a" stroke="#4a3a1a"/>
+  <g font-family="monospace" font-size="13" fill="#e8d5a8"><text x="594" y="176">real PTY</text></g>
+  <g font-family="monospace" font-size="10" fill="#8a6c34"><text x="594" y="200">fork / openpty</text></g>
+
+  <g stroke="#ffb643" stroke-width="1.5" fill="none"><path d="M226 183 H315"/><path d="M485 183 H574"/></g>
+
+  <!-- 磷光屏 -->
+  <rect x="56" y="288" width="688" height="380" fill="#0d0a05" stroke="#4a3a1a"/>
+  <rect x="56" y="288" width="688" height="30" fill="#241a08"/>
+  <g font-family="monospace" font-size="10" fill="#c9973f"><text x="72" y="308">P3 — AMBER PHOSPHOR TERMINAL</text></g>
+
+  <g font-family="monospace" font-size="13" fill="#ffb643">
+    <text x="80" y="356">P3 phosphor test pattern</text>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#a87c2e">
+    <text x="80" y="392">[  OK  ] warm boot ................. 1.42 s</text>
+    <text x="80" y="420">[  OK  ] tube bias .................. 62 V</text>
+    <text x="80" y="448">[ WARN ] no such device: /dev/radio0</text>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#ffcf70">
+    <text x="80" y="490">colours 31-36: 31 32 33 34 35 36</text>
+    <text x="80" y="518">dim <tspan fill="#a87c2e">this line is dim,</tspan> bold <tspan fill="#ffe0a0">hold this line is bold</tspan></text>
+    <text x="80" y="546">inverse <tspan fill="#0d0a05" stroke="#ffb643">selected block</tspan></text>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#a87c2e">
+    <text x="80" y="592">中文输出: 寿县项目 工程量清单 组价</text>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#ffb643">
+    <text x="80" y="632">Hashing firmware [██████████░░░░░░] 62%</text>
+  </g>
+
+  <!-- 磷光余晖 -->
+  <rect x="56" y="288" width="688" height="380" fill="#ffb643" fill-opacity=".03"/>
+
+  <!-- 说明脚标 -->
+  <g font-family="monospace" font-size="11" fill="#7a5c28"><text x="56" y="722">不是终端模拟器：shell 的输出、退出码、光标语义都来自真实伪终端</text></g>
+  <rect x="56" y="740" width="688" height="1" fill="#33270f"/>
+  <g font-family="monospace" font-size="11" fill="#a8803c"><text x="56" y="766">native Rust · egui · amber #ffb643 on #0d0a05</text></g>
+</svg>

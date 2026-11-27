@@ -203,6 +203,11 @@
       function typeLine() {
         if (li >= lines.length) {
           p3Text.innerHTML += '<span class="p3-caret"></span>';
+          // 循环：磷光屏停留一段时间后清屏重播（标签页隐藏时顺延，避免后台空转）
+          window.setTimeout(function retry() {
+            if (document.hidden) { window.setTimeout(retry, 4000); return; }
+            typeLineRestart();
+          }, 7000);
           return;
         }
         var line = lines[li];
@@ -213,6 +218,11 @@
         li++;
         var delay = plain.length > 30 ? 150 : (li < 6 ? 110 : 90);
         window.setTimeout(typeLine, delay);
+      }
+      function typeLineRestart() {
+        p3Text.innerHTML = '';
+        li = 0;
+        typeLine();
       }
       // 等开机动画（约 .9s）结束后开始打字
       window.setTimeout(typeLine, 1000);

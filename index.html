@@ -39,7 +39,7 @@
   "name": "洛橙",
   "alternateName": "Kissshot-2003",
   "url": "https://kissshot-2003.github.io/",
-  "email": "mailto:Karl20070509@live.cn",
+  "email": "Karl20070509@live.cn",
   "jobTitle": "AI 应用工程师",
   "sameAs": ["https://github.com/Kissshot-2003"],
   "knowsAbout": ["大模型应用", "Agent 工作流", "RAG 知识库", "Rust", "工程造价数字化"]
@@ -266,6 +266,17 @@
       </article>
       <article class="project-card reveal">
         <span class="project-index mono">04</span>
+        <div class="project-media"><img src="assets/project-p3.svg" alt="P3 琥珀磷光 CRT 终端示意" loading="lazy" decoding="async" width="800" height="800"></div>
+        <div class="project-content">
+          <div class="project-tags mono"><span>NATIVE RUST</span><span>EGUI</span><span>REAL PTY</span></div>
+          <h3>p3 · 琥珀磷光 CRT 终端</h3>
+          <p>原生 Rust 终端：egui 界面跑在真 PTY 上——不是终端模拟器，shell 的输出、退出码、光标语义全部来自真实伪终端。调色锁定琥珀磷光（#ffb643 on #0d0a05），支持中文与标准 SGR 属性。首页 Hero 里那台自检开机的 CRT，就是它 1:1 的动态复刻。</p>
+          <p class="project-note"><b>// 评价</b>从 PTY fork 到磷光余晖，一条链路全自己写，没有套现成的终端模拟库。它同时是 bun-pty、edge-tui 两条 PTY 脉络的交汇点。</p>
+        </div>
+        <div class="project-meta"><a class="project-link mono" href="https://github.com/Kissshot-2003/p3" target="_blank" rel="noopener">REPO ↗</a></div>
+      </article>
+      <article class="project-card reveal">
+        <span class="project-index mono">05</span>
         <div class="project-media"><img src="assets/project-pty.svg" alt="PTY 与 FreeBSD 构建分支示意" loading="lazy" decoding="async" width="800" height="800"></div>
         <div class="project-content">
           <div class="project-tags mono"><span>OPEN SOURCE</span><span>Rust / Bun</span><span>已合并</span></div>
@@ -276,7 +287,7 @@
         <div class="project-meta"><a class="project-link mono" href="https://github.com/sursatech/bun-pty/pull/55" target="_blank" rel="noopener">PR #55 ↗</a></div>
       </article>
       <article class="project-card reveal">
-        <span class="project-index mono">05</span>
+        <span class="project-index mono">06</span>
         <div class="project-media"><img src="assets/project-agent.svg" alt="设备驱动与协议帧示意" loading="lazy" decoding="async" width="800" height="800"></div>
         <div class="project-content">
           <div class="project-tags mono"><span>OPEN SOURCE</span><span>HID · TS</span><span>已合并</span></div>
@@ -287,7 +298,7 @@
         <div class="project-meta"><a class="project-link mono" href="https://github.com/OpenMouse-Project/mouse-protocol/pull/227" target="_blank" rel="noopener">PR #227 ↗</a></div>
       </article>
       <article class="project-card reveal">
-        <span class="project-index mono">06</span>
+        <span class="project-index mono">07</span>
         <div class="project-media"><img src="assets/project-ai-workspace.svg" alt="桌面应用界面示意" loading="lazy" decoding="async" width="800" height="800"></div>
         <div class="project-content">
           <div class="project-tags mono"><span>RUST</span><span>EGUI</span><span>GUI + CLI</span></div>
@@ -346,15 +357,22 @@
         <li class="reveal">
           <span class="now-date mono">2026.11</span>
           <div class="now-item">
-            <strong>个人主页改版上线</strong>
-            <p>换成 OpenCode 风格，右侧是 P3 琥珀 CRT 终端的动态复刻——点它可跳到我的 P3 项目。</p>
+            <strong>p3 琥珀 CRT 终端开源发布</strong>
+            <p>原生 Rust，egui 界面跑在真 PTY 上——首页右侧那台自检开机的终端就是它的动态复刻。</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="now-date mono">2026.11</span>
+          <div class="now-item">
+            <strong>perihub-scoop：PeriHub 官方 Scoop bucket</strong>
+            <p>免装 SteelSeries GG / Logitech G HUB，一条命令装好外设配置工具，与 OpenMouse 贡献同一条外设脉络。</p>
           </div>
         </li>
         <li class="reveal">
           <span class="now-date mono">2026.11</span>
           <div class="now-item">
             <strong>LFM3 微调 + Agent SFT 两篇 cookbook PR</strong>
-            <p>#153 解决 AMD 老卡 fp16 NaN，#154 把模型训成会输出 tool_call 的决策模块。</p>
+            <p>#153 解决 AMD 老卡 fp16 NaN，#154 把模型训成会输出 tool_call 的决策模块（均在审查中）。</p>
           </div>
         </li>
         <li class="reveal">
